@@ -9,3 +9,23 @@
 інпутів, очищені від пробілів по краях.Для доступу до елементів форми використовуй властивість elements.
 При сабміті форми виведи об'єкт із введеними даними в консоль і очисти значення полів 
 форми методом reset. */
+
+const formLogin = document.querySelector(".login-form");
+formLogin.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const email = form.elements.email.value.trim();
+  const password = form.elements.password.value.trim();
+
+  if (email === "" || password === "") {
+    alert("All form fields must be filled in");
+  }
+  const formResult = {
+    email,
+    password,
+  };
+  console.log(formResult);
+  form.reset();
+}
